@@ -4,15 +4,16 @@ public class fileOpener {
     private String filename;// filename location
     private LinkedList<String> str_list = new LinkedList<>();
     
+    
     //constructor
     public fileOpener(String filename){
-       setFilename(filename); 
+       setFilename(filename);
     }
 
     // read file from filename
     public void readFile(){
         try {
-            File myObj = new File("Annual.csv");
+            File myObj = new File(filename);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
               String data = myReader.nextLine();
@@ -31,7 +32,14 @@ public class fileOpener {
         try {
             FileWriter myWriter = new FileWriter(filename);
             for (String str : str_list){
-                myWriter.write(str);
+                String[] list = str.split(",",4);
+                String toWrite = "";
+                for(int i = 0; i<2; i++){
+                  toWrite += list[i] + ",";
+                }
+                toWrite += list[2] + "\n";
+
+                myWriter.write(toWrite);
             }
             myWriter.close();
             System.out.println("Successfully wrote to the file.");
@@ -48,7 +56,10 @@ public class fileOpener {
         this.filename = filename;
     }
 
-    
+    public LinkedList<String> getStr_list() {
+        return str_list;
+    }
+
 
 }
 
