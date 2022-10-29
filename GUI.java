@@ -16,6 +16,7 @@ public class GUI extends JFrame{
         this.add(new JLabel("File name to write"));
 
         JTextField tf1 = new JTextField("annual.csv");
+        
         this.add(tf1);
         JTextField tf2 = new JTextField("<user input>");
         this.add(tf2);
@@ -28,7 +29,9 @@ public class GUI extends JFrame{
         this.add(new JLabel("First five lines of new file"));
 
         var ta1 = new JTextArea();
-        this.add(ta1);
+        JScrollPane scrollPane = new JScrollPane(ta1);
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+        this.add(scrollPane);
         var ta2 = new JTextArea();
         this.add(ta2);
 
