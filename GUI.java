@@ -73,9 +73,4 @@ public class GUI extends JFrame{
 
     }
 
-    public static void main(String[] args){
-        // start the GUI program
-        new GUI();
-    
-    }
 }
